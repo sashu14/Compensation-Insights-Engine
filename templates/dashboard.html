@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | HRIS Reporter{% endblock %}
+
+{% block content %}
+<div class="report-header">
+    <h2>Available Analytics</h2>
+</div>
+
+<div class="grid">
+    {% for id, details in reports.items() %}
+    <a href="{{ url_for('view_report', report_id=id) }}" class="card">
+        <h2>{{ details.title }}</h2>
+        <p>{{ details.description }}</p>
+        <div class="arrow">View Report</div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

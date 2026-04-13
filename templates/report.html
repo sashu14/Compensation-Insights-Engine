@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} | HRIS Reporter{% endblock %}
+
+{% block content %}
+<div class="report-header">
+    <div>
+        <a href="/" class="back-link">
+            <span>←</span> Back to Dashboard
+        </a>
+        <h2 style="margin-top: 1rem;">{{ title }}</h2>
+    </div>
+</div>
+
+{% if table_html %}
+    <div class="table-container">
+        {{ table_html | safe }}
+    </div>
+{% else %}
+    <div class="empty-state">
+        <h3>No Data Found</h3>
+        <p>This report returned an empty result set.</p>
+    </div>
+{% endif %}
+{% endblock %}
